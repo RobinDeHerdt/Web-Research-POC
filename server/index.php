@@ -11,7 +11,8 @@
 
 	$createQuery = "CREATE TABLE commands(id unsigned auto_increment primary_key, command_number int);";
 	$deleteQuery = "TRUNCATE TABLE commands";
-	$insertQuery = "INSERT INTO commands(command_number) VALUES(3),(1),(2),(4)";
+	// $insertQuery = "INSERT INTO commands(command_number) VALUES(3),(1),(2),(4)";
+	$insertQuery = "INSERT INTO commands(command_number) VALUES(1),(2),(3),(4),(5),(6)";
 
 	if($conn->query($deleteQuery) === true)
 	{
