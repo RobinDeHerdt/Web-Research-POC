@@ -92,25 +92,57 @@
 	
 	context.moveTo(x, y);
 
+	// 1
 	function up()
 	{
 		x = x;
 		if(y - distance >= 0)
 		{
 			y = y - distance;
-			movesArray.push(1);
+
+			switch(previousDirection)
+			{
+				case 1: 
+					movesArray.push(1);
+					break; 
+				case 2: 
+					movesArray.push(3,1);
+					break;
+				case 3: 
+					movesArray.push(2,1);
+					break;
+				case 4: 
+					movesArray.push(3,3,1);
+			}
+			previousDirection = 1;
 			console.log(movesArray);
 		}
 	
 		draw();
 	}
 
+	// 2
 	function right()
 	{
 		if(x + distance <= canvas.width)
 		{
 			x = x + distance;
-			movesArray.push(2);
+
+			switch(previousDirection)
+			{
+				case 1: 
+					movesArray.push(3,1);
+					break; 
+				case 2: 
+					movesArray.push(1);
+					break;
+				case 3: 
+					movesArray.push(3,3,1);
+					break;
+				case 4: 
+					movesArray.push(2,1);
+			}
+			previousDirection = 2;
 			console.log(movesArray);
 		}
 		y = y;
@@ -118,12 +150,28 @@
 		draw();
 	}
 
+	// 3
 	function left()
 	{
 		if(x - distance >= 0)
 		{
 			x = x - distance;
-			movesArray.push(4);
+			
+			switch(previousDirection)
+			{
+				case 1: 
+					movesArray.push(3,1);
+					break; 
+				case 2: 
+					movesArray.push(2,2,1);
+					break;
+				case 3: 
+					movesArray.push(1);
+					break;
+				case 4: 
+					movesArray.push(3,1);
+			}
+			previousDirection = 3;
 			console.log(movesArray);
 		}
 		y = y;
@@ -137,7 +185,22 @@
 		if(y + distance <= canvas.height)
 		{
 			y = y + distance;
-			movesArray.push(3);
+
+			switch(previousDirection)
+			{
+				case 1: 
+					movesArray.push(2,2,1);
+					break; 
+				case 2: 
+					movesArray.push(2,1);
+					break;
+				case 3: 
+					movesArray.push(3,1);
+					break;
+				case 4: 
+					movesArray.push(1);
+			}
+			previousDirection = 4;
 			console.log(movesArray);
 		}
 
@@ -156,9 +219,7 @@
 
 	function send() 
 	{
-		console.log('Posting data...');
-
-		$.post( "", { data: movesArray })
+		$.post("", { data: movesArray })
   		.done(function() {
   			console.log('Success!');
 		})

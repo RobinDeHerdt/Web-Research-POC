@@ -99,7 +99,7 @@ void loop() {
             // Right
             pf.combo_pwm(PWM_FWD5, PWM_FWD5); 
             Serial.println("Spin to the right!");
-            delay(1000);
+            delay(900);
         }
         break;
         // 3
@@ -108,7 +108,7 @@ void loop() {
             // Left
             pf.combo_pwm(PWM_REV5, PWM_REV5); 
             Serial.println("Spin to the left!");
-            delay(1000);
+            delay(900);
         }
         break;
         // 4
