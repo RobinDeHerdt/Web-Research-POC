@@ -19,3 +19,18 @@ http://forum.arduino.cc/index.php?topic=38142.msg282833#msg282833
 http://www.philohome.com/pf/LEGO_Power_Functions_RC.pdf    
 - 24/12/2016	Lego IR library  
 https://github.com/jurriaan/Arduino-PowerFunctions   
+- 29/12/2016	HTML canvas mogelijkheden  
+http://www.w3schools.com/html/html5_canvas.asp
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API   
+- 29/12/2016	SVG  
+http://www.w3schools.com/html/html5_svg.asp  
+- 29/12/2016	HTML5 Drawing app   
+http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/  
+- 03/01/2017	HTML canvas library  
+http://fabricjs.com/  
+http://fabricjs.com/demos/  
+https://trackingjs.com/docs.html  
+- 03/01/2017	Interactive HTML canvas  
+http://simonsarris.com/making-html5-canvas-useful/  
+- 03/01/2017	Text interpreters  
+http://detexify.kirelabs.org/classify.html  
