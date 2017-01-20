@@ -49,7 +49,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Draw</title>
 	<style>
 		.container {
 			text-align: center;
@@ -75,6 +75,7 @@
 		<button onclick="left();">Left</button>
 		<button onclick="reset();">Reset</button>
 		<button onclick="send();">Send</button>
+		<span id="send-callback"></span>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -86,13 +87,12 @@
 	var y 					= 475;
 
 	var distance 			= 50;
-	var movesArray  		= [];
+	var movesArray  		= [0];
 
 	var previousDirection 	= 1;
 	
 	context.moveTo(x, y);
 
-	// 1
 	function up()
 	{
 		x = x;
@@ -115,13 +115,11 @@
 					movesArray.push(3,3,1);
 			}
 			previousDirection = 1;
-			console.log(movesArray);
 		}
 	
 		draw();
 	}
 
-	// 2
 	function right()
 	{
 		if(x + distance <= canvas.width)
@@ -131,7 +129,7 @@
 			switch(previousDirection)
 			{
 				case 1: 
-					movesArray.push(3,1);
+					movesArray.push(2,1);
 					break; 
 				case 2: 
 					movesArray.push(1);
@@ -143,14 +141,12 @@
 					movesArray.push(2,1);
 			}
 			previousDirection = 2;
-			console.log(movesArray);
 		}
 		y = y;
 
 		draw();
 	}
 
-	// 3
 	function left()
 	{
 		if(x - distance >= 0)
@@ -172,7 +168,6 @@
 					movesArray.push(3,1);
 			}
 			previousDirection = 3;
-			console.log(movesArray);
 		}
 		y = y;
 
@@ -201,7 +196,6 @@
 					movesArray.push(1);
 			}
 			previousDirection = 4;
-			console.log(movesArray);
 		}
 
 		draw();
@@ -211,7 +205,8 @@
 	{
 		x = 475;
 		y = 475;
-		movesArray = [];
+		movesArray = [0];
+		previousDirection = 1;
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
 		context.moveTo(x, y);
@@ -219,12 +214,14 @@
 
 	function send() 
 	{
+		var element = document.getElementById('send-callback');
+
 		$.post("", { data: movesArray })
   		.done(function() {
-  			console.log('Success!');
+  			element.innerHTML = "Sent!";
 		})
 		.fail(function() {
-			console.log('Something went wrong :(');
+			element.innerHTML = "Failed :(";
 		});	
 	}
 

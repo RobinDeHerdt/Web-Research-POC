@@ -5,9 +5,10 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM commands";
+	$sql 			= "SELECT * FROM commands";
+	$queryExecuted 	= "UPDATE commands SET command_number=1 WHERE id=1";
 
-	$resultsArray = [];
+	$resultsArray 	= [];
 
 	if($result = $conn->query($sql))
 	{
@@ -15,6 +16,8 @@
 			array_push($resultsArray, $value['command_number']); 
 		}
 		$result->close();
+
+	 	$conn->query($queryExecuted);
 	}
 
 	$conn->close();
