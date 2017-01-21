@@ -23,6 +23,7 @@
 		$serial->confFlowControl("none");
 
 		$serial->deviceOpen();
+		sleep(3);
 		$serial->sendMessage($json);
 	}
 ?>
@@ -69,7 +70,7 @@
 	var y 					= 475;
 
 	var distance 			= 50;
-	var movesArray  		= [0];
+	var movesArray  		= [];
 
 	var previousDirection 	= 1;
 	
@@ -187,7 +188,7 @@
 	{
 		x = 475;
 		y = 475;
-		movesArray = [0];
+		movesArray = [];
 		previousDirection = 1;
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
