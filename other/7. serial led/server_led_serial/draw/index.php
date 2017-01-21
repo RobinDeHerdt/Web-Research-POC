@@ -1,47 +1,58 @@
 <?php 
-	$conn = new mysqli('localhost', 'root', 'root', 'web_research');
-	
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
-
-	$createQuery = "CREATE TABLE commands(id unsigned auto_increment primary_key, command_number int);";
-	$deleteQuery = "TRUNCATE TABLE commands";
+	include 'PhpSerial.php';
 
 	if(isset($_POST['data']))
 	{ 
-		$queryString = "";
+		$movesArray = [];
 
 		foreach ($_POST['data'] as $key => $value) {
-			if($key != count($_POST['data']) - 1)
-			{
-				$queryString .= "(" . $value . "),";
-			}
-			else
-			{
-				$queryString .= "(" . $value . ")";
-			}
+			array_push($movesArray, $value);
 		}
+		
+		$json = json_encode($movesArray);
+		echo $json;
+	}
 
-		$insertQuery = "INSERT INTO commands(command_number) VALUES" . $queryString;
+	if(isset($_POST['ledon']))
+	{ 
+		// Let's start the class
+		$serial = new PhpSerial;
 
-		if($conn->query($deleteQuery) === true)
-		{
-			//echo 'Old records deleted.<br>';
-		}
-		else
-		{
-			echo 'Error' . $deleteQuery . '<br>' . $conn->error . '<br>';
-		}
+		// First we must specify the device. This works on both linux and windows (if
+		// your linux serial device is /dev/ttyS0 for COM1, etc)
+		$serial->deviceSet("/dev/ttyACM0");
 
-		if($conn->query($insertQuery) === true)
-		{
-			//echo 'New records created.<br>';
-		}
-		else
-		{
-			echo 'Error' . $insertQuery . '<br>' . $conn->error . '<br>';
-		}
+		// We can change the baud rate, parity, length, stop bits, flow control
+		$serial->confBaudRate(9600);
+		$serial->confParity("none");
+		$serial->confCharacterLength(8);
+		$serial->confStopBits(1);
+		$serial->confFlowControl("none");
+
+		// Then we need to open it
+		$serial->deviceOpen();
+		$serial->sendMessage("a");
+	}
+
+	if(isset($_POST['ledoff']))
+	{ 
+		// Let's start the class
+		$serial = new PhpSerial;
+
+		// First we must specify the device. This works on both linux and windows (if
+		// your linux serial device is /dev/ttyS0 for COM1, etc)
+		$serial->deviceSet("/dev/ttyACM0");
+
+		// We can change the baud rate, parity, length, stop bits, flow control
+		$serial->confBaudRate(9600);
+		$serial->confParity("none");
+		$serial->confCharacterLength(8);
+		$serial->confStopBits(1);
+		$serial->confFlowControl("none");
+
+		// Then we need to open it
+		$serial->deviceOpen();
+		$serial->sendMessage("b");
 	}
 ?>
 
@@ -76,6 +87,9 @@
 		<button onclick="reset();">Reset</button>
 		<button onclick="send();">Send</button>
 		<span id="send-callback"></span>
+
+		<button onclick="sendSerialOn();">Led on</button>
+		<button onclick="sendSerialOff();">Led off</button>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -138,7 +152,7 @@
 					movesArray.push(3,3,1);
 					break;
 				case 4: 
-					movesArray.push(2,1);
+					movesArray.push(3,1);
 			}
 			previousDirection = 2;
 		}
@@ -222,6 +236,28 @@
 		})
 		.fail(function() {
 			element.innerHTML = "Failed :(";
+		});	
+	}
+
+	function sendSerialOn()
+	{
+		$.post("", { ledon: movesArray })
+  		.done(function() {
+  			console.log('SUCCESS');
+		})
+		.fail(function() {
+			console.log('FAILED');
+		});	
+	}
+
+	function sendSerialOff()
+	{
+		$.post("", { ledoff: movesArray })
+  		.done(function() {
+  			console.log('SUCCESS');
+		})
+		.fail(function() {
+			console.log('FAILED');
 		});	
 	}
 

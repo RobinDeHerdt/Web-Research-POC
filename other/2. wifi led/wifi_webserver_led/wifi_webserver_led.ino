@@ -5,9 +5,9 @@
 #include <WiFiServer.h>
 #include <WiFiUdp.h>
 
-char ssid[] = "SSID";      //  your network SSID (name)
-char pass[] = "PASSWORD";   // your network password
-int keyIndex = 0;                 // your network key Index number (needed only for WEP)
+char ssid[] = "";
+char pass[] = "";
+int keyIndex = 0;
 
 int status = WL_IDLE_STATUS;
 WiFiServer server(80);
