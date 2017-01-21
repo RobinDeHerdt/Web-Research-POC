@@ -34,3 +34,19 @@ https://trackingjs.com/docs.html
 http://simonsarris.com/making-html5-canvas-useful/  
 - 03/01/2017	Text interpreters  
 http://detexify.kirelabs.org/classify.html  
+- 20/01/2017	Post van arduino naar webserver  
+https://forum.arduino.cc/index.php?topic=145277.0  
+- 20/01/2017  	Arduino wifi shield connect niet op wpa2 enterprise  
+https://www.arduino.cc/en/Guide/ArduinoWiFiShield  
+- 20/01/2017 	Arduino serial  
+https://www.arduino.cc/en/serial/begin  
+https://www.arduino.cc/en/Serial/Read  
+http://www.instructables.com/id/Arduino-Function-Serialread-And-SerialreadString/  
+https://forum.arduino.cc/index.php?topic=123573.0  
+http://www.cplusplus.com/forum/general/78454/   
+http://arduino-er.blogspot.be/2014/08/arduino-ide-error-avrdude-seropen-cant.html  
+- 21/01/2017	Linux serial ports  
+https://www.cyberciti.biz/faq/find-out-linux-serial-ports-with-setserial/   
+http://www.ru.j-npcs.org/usoft/WWW/HOWTO/Serial-HOWTO-3.html   
+- 21/01/2017 	Server to serial  
+https://github.com/Xowap/PHP-Serial  

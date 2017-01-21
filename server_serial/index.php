@@ -23,7 +23,7 @@
 		$serial->confFlowControl("none");
 
 		$serial->deviceOpen();
-		$serial->sendMessage($movesArray);
+		$serial->sendMessage($json);
 	}
 ?>
 
