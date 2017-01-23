@@ -71,8 +71,8 @@
 	<div id="steering">
 		<button onclick="up();">Up</button>
 		<button onclick="down();">Down</button>
-		<button onclick="right();">Right</button>
 		<button onclick="left();">Left</button>
+		<button onclick="right();">Right</button>
 		<button onclick="reset();">Reset</button>
 		<button onclick="send();">Send</button>
 		<span id="send-callback"></span>

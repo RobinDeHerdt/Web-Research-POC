@@ -1,5 +1,8 @@
-# Web-Research-POC
-
+# Web-Research-POC  
+## Video's  
+WIFI: https://www.youtube.com/watch?v=P_l_eXKehQE  
+USB: https://www.youtube.com/watch?v=Xn6Jz6jkfmQ  
+## Logboek  
 - 15/12/2016	Werkende voorbeelden van arduino powered stuff  
 https://www.youtube.com/user/TechnicRobot    
 - 15/12/2016 	Lego motor hacking  
@@ -22,6 +25,7 @@ https://github.com/jurriaan/Arduino-PowerFunctions
 - 29/12/2016	HTML canvas mogelijkheden  
 http://www.w3schools.com/html/html5_canvas.asp
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API   
+http://intridea.github.io/sketch.js/  
 - 29/12/2016	SVG  
 http://www.w3schools.com/html/html5_svg.asp  
 - 29/12/2016	HTML5 Drawing app   
